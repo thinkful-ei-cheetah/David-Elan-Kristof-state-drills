@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordian works! Renders to the page with no selection 1`] = `
+Array [
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      Section 1
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      Section 2
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      Section 3
+    </button>
+  </div>,
+  <ul />,
+]
+`;
+
+exports[`Accordian works! only opens one section at a time 1`] = `
+<Fragment>
+  <div>
+    <button>
+      Section 1
+    </button>
+    <button>
+      Section 2
+    </button>
+    <button>
+      Section 3
+    </button>
+  </div>
+  <ul />
+</Fragment>
+`;
+
+exports[`Accordian works! opens a clicked session 1`] = `
+<Fragment>
+  <div>
+    <button>
+      Section 1
+    </button>
+    <button>
+      Section 2
+    </button>
+    <button>
+      Section 3
+    </button>
+  </div>
+  <ul />
+</Fragment>
+`;

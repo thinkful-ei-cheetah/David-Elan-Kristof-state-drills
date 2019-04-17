@@ -1,30 +1,56 @@
 import React from 'react'
 
 
-const Accordian=({handleClick, allSections, selectedSection})=>{
+class Accordian extends React.Component {
 
-  const findSection= selectedSectionName =>{
-    const section = allSections.find(section=> section.title === selectedSectionName);
-    return <li><p>{section.content}</p></li>
+  state = {
+    showSection: null
   }
 
+  sections = [
+    {
+      title: 'Section 1',
+      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    },
+    {
+      title: 'Section 2',
+      content: 'Cupiditate tenetur aliquam necessitatibus id distinctio quas nihil ipsam nisi modi!',
+    },
+    {
+      title: 'Section 3',
+      content: 'Animi amet cumque sint cupiditate officia ab voluptatibus libero optio et?',
+    },
+  ]
 
+  selectedSectionName = () => {
+    return (
+      <li>
+        <p>{this.sections[this.state.showSection].content}</p>
+      </li>
+    )
+  }
 
-  return(
-    <React.Fragment>
-      <div>
-        <button onClick={handleClick}>Section 1</button>
-        <button onClick={handleClick}>Section 2</button>
-        <button onClick={handleClick}>Section 3</button>
-      </div>
-      <ul>
-        {selectedSection !== null && findSection(selectedSection)}
-      </ul>
-      </React.Fragment>
-    
-    
-  )
+  handleClick=(sectionNumber)=>{
+    this.setState({
+      showSection: sectionNumber
+    })
+  }
 
-}
+  render() {
+    return(
+      <React.Fragment>
+        <div>
+          <button onClick={() => this.handleClick(0)}>Section 1</button>
+          <button onClick={() => this.handleClick(1)}>Section 2</button>
+          <button onClick={() => this.handleClick(2)}>Section 3</button>
+        </div>
+        <ul>
+          {this.state.showSection !== null && this.selectedSectionName(this.state.showSection)}
+        </ul>
+        </React.Fragment>  
+    )
+  }
+} 
+
 
 export default Accordian;
